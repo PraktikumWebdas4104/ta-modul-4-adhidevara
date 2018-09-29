@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 if (isset($_POST['submit'])) {
 		$usr = $_POST['usr'];
 		$pass = $_POST['pass'];
@@ -53,13 +54,23 @@ if (isset($_POST['submit'])) {
 			$dataTravel = $_POST['travel'];
 
 			echo "<b>Film Favorit Anda :</b><br>";
-			foreach ($dataFilm as $film) {
-				echo "◄. ".$film."<br>";
+			if (!empty($dataFilm)) {
+				foreach ($dataFilm as $film) {
+					echo "◄. ".$film."<br>";
+				}
+			}
+			else{
+				echo "<i>Anda Tidak Memiliki Film Favorit</i><br>";
 			}
 
 			echo "<br><b>Tujuan Travelling Favorit Anda :</b><br>";
-			foreach ($dataTravel as $travel) {
+			if (!empty($dataTravel)) {
+				foreach ($dataTravel as $travel) {
 				echo "◄. ".$travel."<br>";
+				}
+			}
+			else{
+				echo "<i>Anda Tidak Memiliki Tujuan Travelling Favorit</i><br>";
 			}
 	}
 ?>
